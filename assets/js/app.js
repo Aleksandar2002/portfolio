@@ -35,6 +35,29 @@ $(document).ready(function () {
   });
   $(".navigation ul").html(html);
 
+  // HAMBURGER
+  let hamburgerBtn = document.querySelector(".hamburger button");
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener("click", () => {
+      if (hamburgerBtn.classList.contains("animate")) {
+        hamburgerBtn.classList.remove("animate");
+        $("header .navigation").removeClass("visible");
+        return;
+      }
+      $("header .navigation").addClass("visible");
+      hamburgerBtn.classList.add("animate");
+    });
+  }
+
+  // CLOSE NAV BUTTON
+  let closeNav = document.querySelector(".closeNav");
+  if (closeNav) {
+    closeNav.addEventListener("click", () => {
+      $("header .navigation").removeClass("visible");
+      $(".hamburger button").removeClass("animate");
+    });
+  }
+
   // SERVICES
   let services = [
     {
@@ -142,6 +165,7 @@ $(document).ready(function () {
     project.technologies.forEach((tech) => {
       html += `${tech}, `;
     });
+    html = html.substring(0, html.length - 2);
     html += `</p></div>
     </div></div>`;
     document.querySelector("#projects .wrapper").innerHTML = html;

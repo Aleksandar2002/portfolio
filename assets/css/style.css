@@ -32,7 +32,7 @@ html body input {
   border: none;
   outline: none;
 }
-html body aside {
+html body header {
   width: 20%;
   position: fixed;
   left: 0;
@@ -45,34 +45,56 @@ html body aside {
   align-items: center;
   z-index: 100;
 }
-html body aside a {
+html body header a {
   color: #eee;
   transition: 0.33s ease-in-out;
 }
-html body aside hr.line {
+html body header hr.line {
   background-color: #eee;
   width: 50%;
   height: 2px;
 }
-html body aside .row {
+html body header .row {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
-html body aside .row .col {
+html body header .row .col {
   margin: 35px 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
-html body aside .row .col nav {
+html body header .row .col.hamburger {
+  display: none;
+}
+html body header .row .col.navigation .closeNav {
+  position: absolute;
+  top: 4%;
+  right: 2%;
+  background-color: #eee;
+  color: #2d3142;
+  transition: 0.33s ease-in-out;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+html body header .row .col.navigation .closeNav:hover {
+  background-color: #2d3142;
+  color: #eee;
+}
+html body header .row .col nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-html body aside .row .col nav ul {
+html body header .row .col nav ul {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -80,16 +102,16 @@ html body aside .row .col nav ul {
   padding: 0;
   margin: 0;
 }
-html body aside .row .col nav ul li {
+html body header .row .col nav ul li {
   margin: 7px 0;
 }
-html body aside .row .col nav ul li a {
+html body header .row .col nav ul li a {
   font-size: 1.13rem;
   border-bottom: 1px solid transparent;
   position: relative;
   padding: 5px 8px;
 }
-html body aside .row .col nav ul li a::after {
+html body header .row .col nav ul li a::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -99,17 +121,17 @@ html body aside .row .col nav ul li a::after {
   background-color: #2d3142;
   transition: 0.33s ease-in-out;
 }
-html body aside .row .col nav ul li a:hover {
+html body header .row .col nav ul li a:hover {
   color: #2d3142;
 }
-html body aside .row .col nav ul li a:hover::after {
+html body header .row .col nav ul li a:hover::after {
   width: 100%;
 }
-html body aside .row .col p {
+html body header .row .col p {
   color: #eee;
   font-size: 1.15rem;
 }
-html body aside .row .col p span {
+html body header .row .col p span {
   font-size: 1.23rem;
   color: #2d3142;
 }
@@ -132,11 +154,14 @@ html body main .wrapper {
   width: 75%;
   margin: 0 auto;
 }
+html body main #home {
+  position: relative;
+}
 html body main #home .banner {
   width: 100%;
-  height: 100vh;
-  border-radius: 0 0 50px 0;
+  min-height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 html body main #home .banner hr.line {
   background-color: #2d3142;
@@ -150,7 +175,7 @@ html body main #home .banner .image {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   z-index: 1;
 }
@@ -163,7 +188,7 @@ html body main #home .banner .layer {
 }
 html body main #home .banner .content {
   position: absolute;
-  top: 6%;
+  top: 50px;
   right: 3%;
   background-color: #048ba8;
   -webkit-backdrop-filter: blur(20px);
@@ -471,6 +496,10 @@ html body main #skills .wrapper .skill progress[value]::-webkit-progress-bar {
 html body main #contact {
   padding: 100px 0 110px 0;
   background-color: #eee;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 html body main #contact .wrapper {
   display: flex;
